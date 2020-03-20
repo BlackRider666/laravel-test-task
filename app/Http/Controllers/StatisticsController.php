@@ -20,11 +20,10 @@ class StatisticsController extends Controller
 
     public function index(Request $request)
     {
-        $this->validate($request,[
-            'date'  =>  'date'
+        $this->validate($request, [
+            'date'  =>  'date',
         ]);
-        if ($request->get('date') == null)
-        {
+        if ($request->get('date') === null) {
             $date = Carbon::now()->format('Y-m-d');
         } else {
             $date = $request->get('date');

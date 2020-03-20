@@ -28,7 +28,7 @@ class AuthController extends Controller
                 'password' => ['required', 'string', 'min:4'],
             ]);
         } catch (ValidationException $e) {
-            return response($e,401);
+            return response(['error' => 'The provided credentials are incorrect.'],401);
         }
         $user = User::where('email', $request->get('email'))->first();
         if (!$user || !Hash::check($request->get('password'), $user->password)) {

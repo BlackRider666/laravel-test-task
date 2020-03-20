@@ -21,7 +21,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ProductRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
@@ -57,7 +57,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Product $product
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
