@@ -5,15 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Product;
+use Exception;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         return response(Product::all(),200);
     }
@@ -22,11 +24,12 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param ProductRequest $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request): Response
     {
         $product = Product::create($request->all());
+
         return response($product,200);
     }
 
@@ -34,9 +37,9 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param Product $product
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show(Product $product)
+    public function show(Product $product): Response
     {
         return response($product,200);
     }
@@ -46,11 +49,12 @@ class ProductController extends Controller
      *
      * @param ProductRequest $request
      * @param Product $product
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product): Response
     {
         $product->update($request->all());
+
         return response($product,200);
     }
 
@@ -58,12 +62,13 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Product $product
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
+     * @return Response
+     * @throws Exception
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product): Response
     {
         $product->delete();
+
         return response('Success',200);
     }
 }

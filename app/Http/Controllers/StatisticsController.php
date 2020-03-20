@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Service\StatisticsService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class StatisticsController extends Controller
 {
@@ -13,12 +15,21 @@ class StatisticsController extends Controller
      */
     private $statisticsService;
 
+    /**
+     * StatisticsController constructor.
+     * @param StatisticsService $statisticsService
+     */
     public function __construct(StatisticsService $statisticsService)
     {
         $this->statisticsService = $statisticsService;
     }
 
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return View
+     * @throws ValidationException
+     */
+    public function index(Request $request): View
     {
         $this->validate($request, [
             'date'  =>  'date',

@@ -6,7 +6,10 @@ use App\Product;
 
 class ProductObserver
 {
-    public function saved(Product $product)
+    /**
+     * @param Product $product
+     */
+    public function saved(Product $product): void
     {
         $product->reportViews()->create([
             'total_views'   => 0,

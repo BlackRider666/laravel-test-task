@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ReportView extends Model
 {
@@ -14,12 +15,18 @@ class ReportView extends Model
         'product_id',
     ];
 
-    public function product()
+    /**
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
     {
         return $this->belongsTo('App\Product');
     }
 
-    public function user()
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');
     }

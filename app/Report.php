@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Report extends Model
 {
@@ -13,7 +14,10 @@ class Report extends Model
         'purchased',
     ];
 
-    public function product()
+    /**
+     * @return BelongsTo
+     */
+    public function product(): BelongsTo
     {
         return $this->belongsTo('App\Product');
     }

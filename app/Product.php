@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -14,12 +15,18 @@ class Product extends Model
 
     public $timestamps = false;
 
-    public function reports()
+    /**
+     * @return HasMany
+     */
+    public function reports(): HasMany
     {
         return $this->hasMany('App\Report');
     }
 
-    public function reportViews()
+    /**
+     * @return HasMany
+     */
+    public function reportViews(): HasMany
     {
         return $this->hasMany('App\ReportView');
     }
