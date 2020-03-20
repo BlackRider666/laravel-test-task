@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index(): Response
     {
-        return response(Product::all(),200);
+        return response(Product::all(), 200);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductController extends Controller
     {
         $product = Product::create($request->all());
 
-        return response($product,200);
+        return response($product, 200);
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function show(Product $product): Response
     {
-        return response($product,200);
+        return response($product, 200);
     }
 
     /**
@@ -55,7 +55,7 @@ class ProductController extends Controller
     {
         $product->update($request->all());
 
-        return response($product,200);
+        return response($product, 200);
     }
 
     /**
@@ -69,6 +69,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return response('Success',200);
+        return response('Success', 200);
     }
 }

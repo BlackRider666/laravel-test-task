@@ -10,7 +10,8 @@ use Laravel\Airlock\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.

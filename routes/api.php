@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:airlock')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/user-report-views','API\UserController@index');
-Route::prefix('airlock')->namespace('API')->group(function() {
+Route::get('/user-report-views', 'API\UserController@index');
+Route::prefix('airlock')->namespace('API')->group(function () {
     Route::post('register', 'AuthController@register');
     Route::post('token', 'AuthController@token');
 });
-Route::apiResource('products','API\ProductController')->middleware('auth:airlock');
-Route::get('products-statistics','API\StatisticsController@statisticsPurchaseOnView');
-Route::get('products-statistics-by-date','API\StatisticsController@statisticsByDate');
+Route::apiResource('products', 'API\ProductController')->middleware('auth:airlock');
+Route::get('products-statistics', 'API\StatisticsController@statisticsPurchaseOnView');
+Route::get('products-statistics-by-date', 'API\StatisticsController@statisticsByDate');

@@ -15,6 +15,6 @@ class UserController extends Controller
     {
         $users = User::with('reportViews')->get();
 
-        return response($users,200);
+        return response($users, 200);
     }
 }

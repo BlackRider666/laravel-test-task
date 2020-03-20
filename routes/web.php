@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/statistics-by-date','StatisticsController@index')->name('statistics');
+Route::get('/statistics-by-date', 'StatisticsController@index')->name('statistics');
 Route::get('/home', 'HomeController@index')->name('home');

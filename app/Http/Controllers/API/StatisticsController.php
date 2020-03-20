@@ -28,7 +28,7 @@ class StatisticsController extends Controller
      */
     public function statisticsPurchaseOnView(): Response
     {
-        return response($this->statisticsService->getStatisticsPurchaseOnView(),200);
+        return response($this->statisticsService->getStatisticsPurchaseOnView(), 200);
     }
 
     /**
@@ -37,6 +37,6 @@ class StatisticsController extends Controller
      */
     public function statisticsByDate(StatisticsRequest $request): Response
     {
-        return response($this->statisticsService->getStatisticsByDate($request->get('date')),200);
+        return response($this->statisticsService->getStatisticsByDate($request->get('date')), 200);
     }
 }

@@ -40,7 +40,7 @@ class StatisticsController extends Controller
             $date = $request->get('date');
         }
 
-        return view('statistics',[
+        return view('statistics', [
             'statistics'    =>  $this->statisticsService->getStatisticsByDate($date),
             'date'          =>  $date,
         ]);
